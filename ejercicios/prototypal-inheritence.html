@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia Prototipal</title>
+</head>
+<body>
+    
+    <script>
+
+        function Hero(name){
+            // const hero = Object.create(Hero.prototype)   / Al instanciar con NEW esto ocurre de forma automatica
+            this.name = name
+            // return hero                                  / Al instanciar con NEW esto ocurre de forma automatica
+        }
+
+        Hero.prototype.saludar = function(){
+            console.log(`Hey! llamame ${this.name} ;D`)
+            }
+        const zelda = new Hero("Zelda")
+        zelda.saludar()
+
+        // propiedades de la instancia
+        console.log(`Name: ${zelda.name}`)
+
+        // propiedades de la "clase"
+        console.log(`Saludar: ${zelda.saludar}`)
+
+        // propiedades heredadas (ej. toString)
+        console.log(`Saludar: ${zelda.toString}`)
+        
+        // howOwnProperty (a quien o de donde proviene el metodo/propiedad)
+
+        console.log(`hasOwnProperty("saludar") ${zelda.hasOwnProperty("saludar")}`)
+    </script>
+</body>
+</html>
