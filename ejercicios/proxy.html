@@ -32,7 +32,7 @@
                     return obj[prop]
                 }
 
-                const suggestion = Object.keys(obj).find(key => { return Levenshtein.get(key, prop) <= 3})
+                const suggcestion = Object.keys(obj).find(key => { return Levenshtein.get(key, prop) <= 3})
                 if (suggestion) {
                     console.log(`${prop} no se encontro, quisiste decir ${suggestion}?`)
                 }
