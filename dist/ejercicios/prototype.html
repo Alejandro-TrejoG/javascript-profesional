@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    
+
+    <script>// Un objeto comun y corriente
+// const zelda = {
+//     name: "Zelda"
+// }
+// zelda.saludar = function(){
+//     console.log(`Hola, me llamo ${this.name}`)
+// }
+// zelda.saludar()
+// const link = {
+//     name: "Link"
+// }
+// link.saludar = function(){
+//     console.log(`Hola, me llamo ${this.name}`)
+// }
+// link.saludar()
+// Seamos más eficientes
+// function Hero(name){
+//     const hero = {
+//         name: name,
+//     }
+//     hero.saludar = function(){
+//     console.log(`Hola, me llamo ${this.name}`)
+//     }
+//     return hero
+// }
+// const zelda = Hero("Zelda")
+// zelda.saludar()
+// const link = Hero("Link")
+// link.saludar()
+// Ahora evitemos crear la funcion cada vez que instanciemos un objeto nuevo
+// const heroMethods ={
+//     saludar : function(){
+//     console.log(`Hola, mi nombre es ${this.name}`)
+//     }
+// } 
+// function Hero(name){
+//     const hero = {
+//         name: name,
+//     }
+//     hero.saludar = heroMethods.saludar
+//     return hero
+// }
+// const zelda = Hero("Zelda")
+// zelda.saludar()
+// const link = Hero("Link")
+// link.saludar()
+// Object create
+// const heroMethods ={
+//     saludar : function(){
+//     console.log(`Hola! mi nombre es ${this.name} ;D`)
+//     }
+// } 
+// function Hero(name){
+//     const hero = Object.create(heroMethods)
+//     hero.name = name
+//     hero.saludar = heroMethods.saludar
+//     return hero
+// }
+// const zelda = Hero("Zelda")
+// zelda.saludar()
+// const link = Hero("Link")
+// link.saludar()
+// PROTOTYPE
+// function Hero(name){
+//     const hero = Object.create(Hero.prototype)
+//     hero.name = name
+//     return hero
+// }
+// Hero.prototype.saludar = function(){
+//     console.log(`Hola! llamame ${this.name} ;D`)
+//     }
+// const zelda = Hero("Zelda")
+// zelda.saludar()
+// const link = Hero("Link")
+// link.saludar()
+// 
+// USANDO new para crear objetos,esto hace que herede las propiedad que estan el prototype del objeto "padre"
+function Hero(name) {
+  // const hero = Object.create(Hero.prototype)   / Al instanciar con NEW esto ocurre de forma automatica
+  this.name = name; // return hero                                  / Al instanciar con NEW esto ocurre de forma automatica
+}
+
+Hero.prototype.saludar = function () {
+  console.log(`Hey! llamame ${this.name} ;D`);
+};
+
+const zelda = new Hero("Zelda");
+zelda.saludar();
+const link = new Hero("Link");
+link.saludar();</script>
+</body>
+</html>

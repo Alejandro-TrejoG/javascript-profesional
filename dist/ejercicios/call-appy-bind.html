@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call, Apply, Bind</title>
+</head>
+<body>
+
+    <ul>
+        <li><button class="call-to-action">Aprender</button></li>
+        <li><button class="call-to-action">Aprender Más</button></li>
+        <li><button class="call-to-action">¡Nunca pares de aprender!</button></li>
+    </ul>
+    
+    <script>// Establecer this con metodo call
+function saludar() {
+  console.log(`Hola, me llamo ${this.name} ${this.appellido}`);
+}
+
+const alejandro = {
+  name: "Alejandro",
+  appellido: "Trejo Godinez"
+};
+saludar.call(alejandro); // Establecer this usando call y pasando argumentos
+
+function caminar(metros, direccion) {
+  console.log(`${this.name} camina ${metros} metros hacia ${direccion}`);
+}
+
+caminar.call(alejandro, 400, "norte"); // Establecer this usando metodo apply
+
+const valores = [800, "suroeste"];
+caminar.apply(alejandro, valores);
+/*
+Call (C) - comas
+Apply (A) - arreglo
+*/
+// Establecer this usando metodo bind
+
+/*
+Este metodo permite definir el valor de this, pero creando una nueva funcion
+*/
+
+const daniel = {
+  name: "Daniel",
+  appellido: "Sanchez"
+};
+const danielSaluda = saludar.bind(daniel);
+danielSaluda();
+const danielCamina = caminar.bind(daniel);
+danielCamina(2000, "sur");
+const buttons = document.getElementsByClassName("call-to-action");
+Array.prototype.forEach.call(buttons, button => {
+  button.onclick = () => alert("Nunca pares de aprender");
+});</script>
+</body>
+</html>
