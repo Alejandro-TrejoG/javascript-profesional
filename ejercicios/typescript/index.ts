@@ -73,6 +73,7 @@ comodin = 5
 
 let anObject: object = {type: "Wild"}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Funciones
 
 function newAdd(a:number, b:number) {
@@ -111,3 +112,42 @@ const alejandro = fullName("Alejandro")
 // function fullName (firstName: string, lastName: string = "Smith"): string{
 //     return `${firstName} ${lastName}`
 // }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INTERFACES
+
+// Las interfaces nos ayudan a definir la forma exacta que tiene un objeto, las propiedades que este contiene, esto nos ayuda al
+// autocompletado y a evitar algunos errores
+
+enum Color2{
+    Red = "Rojo",
+    Green = "Verde"
+}
+
+// Para definir una interfaz, usamos la palabra reservado interface, dentro de las llaves, escribimos el nombre de las propiedades
+// y el tipo de estas
+interface Rectangulo{
+    alto: number
+    ancho: number
+    // Si queremos que una propiedad sea opcional, hacemos lo mismo que con los parametro opcionales en las funciones
+    // colocamos ? antes de tiparlo
+    color?: Color2
+}
+
+// Al crear una interfaz, convertimos a esta en un tipo y podemos crear objetos, en este ejemplo, de tipo Rectangulo
+
+// Creamos un nuevo objeto de tipo Rectangulo
+
+let rect: Rectangulo = {
+    alto: 4,
+    ancho: 6
+}
+
+// Aqui le decimos a la funcion que recibira una variable de tipo Rectangulo
+function area (r: Rectangulo):number{
+    return r.alto * r.ancho
+}
+
+const areaRect = area(rect)
+console.log(areaRect)
+
