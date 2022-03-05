@@ -65,9 +65,49 @@ console.log(`Mi color favorito es ${colorFavorito}`)
 
 let comodin: any = "joker"
 comodin = {type: "Wild"}
+comodin = 5
 
 // Object
 // para especificar que una variable es un objeto, tenemos que añadirle : object
 
 
 let anObject: object = {type: "Wild"}
+
+// Funciones
+
+function newAdd(a:number, b:number) {
+    return a + b
+}
+
+const newSum = newAdd(2, 3)
+
+function createAdder(a:number): (b:number) => number {
+    return function (b:number) {
+        return a + b
+    }
+}
+
+const addFour = createAdder(4)
+const fourPlus6 = addFour(6)
+
+// Funciones en las que no sea forzoso un parametro
+// Para esto, en la funcion, en el parametro que nos es forzosamente requerido, antes de colocar :tipoVariable, colocamos
+// el signo ? esto podemos tomarlo como si estuvieramos diciendole a la funcion "quizas llegue o quizas no", esto para que 
+// la funcion siga operando si es que dicho parametro no se le pasa, como en el siguiente ejemplo
+
+function fullName (firstName: string, lastName?: string): string{
+    return `${firstName} ${lastName}`
+}
+
+// Como se observar, al pasarle solo el primer argumento, no nos marca error, esto debido a que le dijimos a la funcion que un
+// parametro puede ser undefined
+const alejandro = fullName("Alejandro")
+
+
+// Pero si queremos que en vez de permitir que no sea necesario un parametro, queremos que tenga un valor por default, hacemos
+// lo siguiente, tras escribir la variable que recibira y el tipado de esta, le asignamos un valor (= valorDefault), si tomamos el ejemplo anterior
+// queda:
+
+// function fullName (firstName: string, lastName: string = "Smith"): string{
+//     return `${firstName} ${lastName}`
+// }
